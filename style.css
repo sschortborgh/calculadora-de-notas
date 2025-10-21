@@ -1,0 +1,171 @@
+/* Importar fuente Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --primary-color: #007bff; /* Azul vibrante */
+    --secondary-color: #28a745; /* Verde para éxito */
+    --danger-color: #dc3545; /* Rojo para reprobado */
+    --warning-color: #f0ad4e; /* Naranja para advertencia */
+    --bg-light: #f4f7f9;
+    --card-bg: #ffffff;
+    --text-color: #333;
+    --error-message-color: #e06c75; /* Un rojo más suave */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Nuevo fondo gradiente */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.card-container {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+    width: 100%;
+    max-width: 450px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-container:hover {
+    transform: translateY(-5px);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+h1 {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+h3, h4 {
+    color: var(--primary-color);
+    font-weight: 600;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+    margin-top: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Estilo para los mensajes de error */
+.error-message {
+    color: var(--error-message-color);
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-top: 5px;
+    display: block;
+}
+
+/* --- Botones --- */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+/* --- Resultado Final --- */
+.result-box {
+    text-align: center;
+    margin-top: 30px;
+    background-color: var(--bg-light);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.final-score {
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+#notaNecesaria {
+    color: var(--primary-color);
+}
+
+.message {
+    font-weight: 600;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#mensajeNecesaria[style*="28a745"] { /* Verde para Aprobado */
+    color: var(--secondary-color);
+}
+#mensajeNecesaria[style*="dc3545"] { /* Rojo para Imposible */
+    color: var(--danger-color);
+}
+
+/* --- Cálculos Auxiliares --- */
+.goal-calc p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+
+#notaFinalMaxima, #notaFinalMinima {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+hr {
+    margin: 30px 0;
+    border: 0;
+    border-top: 1px dashed #ccc;
+}

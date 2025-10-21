@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Nota Final 😎</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="card-container">
+        <header>
+            <h1>CALCULADORA DE NOTAS</h1>
+            <p>33% - 33% - 34%</p>
+        </header>
+        
+        <section class="corte-inputs">
+            <h3>Notas Registradas (Solo Cortes 1 y 2)</h3>
+            <div class="input-group">
+                <label for="corte1">Nota Corte 1 (33%):</label>
+                <input type="text" id="corte1" value="0.0" oninput="validarYLimpiar(this)">
+                <span class="error-message" id="error-corte1"></span>
+            </div>
+
+            <div class="input-group">
+                <label for="corte2">Nota Corte 2 (33%):</label>
+                <input type="text" id="corte2" value="0.0" oninput="validarYLimpiar(this)">
+                <span class="error-message" id="error-corte2"></span>
+            </div>
+            
+            <button class="btn primary-btn" onclick="calcularTodo()">Calcular Nota Necesaria para 3.0</button>
+        </section>
+
+        <section class="result-box goal-calc">
+            <h4>Nota Necesaria en Corte 3 (34%)</h4>
+            <div class="final-score">
+                <span id="notaNecesaria">0.00</span>
+            </div>
+            <p id="mensajeNecesaria" class="message"></p>
+        </section>
+
+        <hr>
+
+        <section class="goal-calc">
+            <h3>Promedio General (Cálculos Auxiliares)</h3>
+            <p>Tu nota final máxima posible sería: <strong><span id="notaFinalMaxima">0.00</span></strong></p>
+            <p>Nota Final con 0.0 en Corte 3 sería: <strong><span id="notaFinalMinima">0.00</span></strong></p>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
