@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Nota Final 😎</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <header>
+            <div style="display:flex;align-items:center;gap:12px;justify-content:space-between;width:100%">
+                <div>
+                    <h1>CALCULADORA DE NOTAS</h1>
+                    <p>33% - 33% - 34%</p>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px">
+                        <button id="themeToggle" class="btn btn-outline" aria-pressed="false">Modo Claro</button>
+                </div>
+            </div>
+            
+                <!-- Barra de efectos removida de la cabecera; el botón Limpiar se colocará abajo a la derecha -->
+        </header>
+        
+        <section class="corte-inputs">
+            <h3>Notas Registradas (Solo Cortes 1 y 2)</h3>
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <label for="corte1" class="input-label">Nota Corte 1 (33%)</label>
+                    <div class="input-inner">
+                        <input id="corte1" type="number" min="0" max="5" step="0.01" placeholder=" " oninput="validarYLimpiar(this)">
+                        <span class="input-icon" aria-hidden="true">
+                            <!-- simple SVG icon -->
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 8H9L12 2Z" fill="currentColor" opacity="0.9"/><path d="M4 22H20L12 13L4 22Z" fill="currentColor" opacity="0.9"/></svg>
+                        </span>
+                        <!-- decor interactive will be handled via CSS/JS -->
+                    </div>
+                </div>
+                <span class="error-message" id="error-corte1"></span>
+            </div>
+
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <label for="corte2" class="input-label">Nota Corte 2 (33%)</label>
+                    <div class="input-inner">
+                        <input id="corte2" type="number" min="0" max="5" step="0.01" placeholder=" " oninput="validarYLimpiar(this)">
+                        <span class="input-icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 8H9L12 2Z" fill="currentColor" opacity="0.9"/><path d="M4 22H20L12 13L4 22Z" fill="currentColor" opacity="0.9"/></svg>
+                        </span>
+                        <!-- decor interactive will be handled via CSS/JS -->
+                    </div>
+                </div>
+                <span class="error-message" id="error-corte2"></span>
+            </div>
+            
+            <button class="btn btn-primary" onclick="calcularTodo()">Calcular Nota Necesaria para 3.0</button>
+        </section>
+
+        <section class="result goal-calc">
+            <h4>Nota Necesaria en Corte 3 (34%)</h4>
+            <div class="final-score">
+                <span id="notaNecesaria">0.00</span>
+            </div>
+            <p id="mensajeNecesaria" class="message"></p>
+        </section>
+
+        <hr>
+
+        <section class="goal-calc">
+            <h3>Promedio General (Cálculos Auxiliares)</h3>
+            <p>Tu nota final máxima posible sería: <strong><span id="notaFinalMaxima">0.00</span></strong></p>
+            <p>Nota Final con 0.0 en Corte 3 sería: <strong><span id="notaFinalMinima">0.00</span></strong></p>
+        </section>
+        <!-- Acciones de la tarjeta: botón Limpiar abajo a la derecha -->
+        <div class="card-actions">
+            <button class="btn btn-outline" id="playBtn">Jugar</button>
+            <button class="btn btn-outline effect-btn" data-action="clear">Limpiar</button>
+        </div>
+        </div>
+    </div>
+
+    <!-- Sección del juego: oculta inicialmente -->
+    <div id="gameScreen" class="game-screen" style="display:none">
+        <div class="game-container">
+            <header class="game-header">
+                <h2>BREAKOUT - NIVEL <span id="levelDisplay">1</span></h2>
+                <div style="display:flex;gap:10px;align-items:center">
+                    <p>Puntuación: <strong id="gameScore">0</strong></p>
+                    <button class="btn btn-outline" id="backBtn">Volver</button>
+                </div>
+            </header>
+            <canvas id="gameCanvas" width="800" height="500" style="display:block;margin:20px auto;background:rgba(0,0,0,0.3);border-radius:10px;border:1px solid rgba(94,200,255,0.2)"></canvas>
+            <p style="text-align:center;color:var(--muted);margin-top:10px">Usa las flechas izquierda/derecha o A/D para mover. Espacio para lanzar la bola.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
